@@ -46,9 +46,9 @@ INSTALLED_APPS = [
 
 SFDC_CONSUMER_KEY = os.getenv('CLIENT_ID')
 SALESFORCE_OAUTH_CLIENT_SECRET = os.getenv('CLIENT_SECRET')
-OAUTH_REDIRECT_URI = os.getenv('CALLBACK_URL')
-LOGIN_REDIRECT_URL = "/"
-SCOPES= "refresh_token full"
+OAUTH_REDIRECT_URI = os.getenv('CALLBACK_URI')
+LOGIN_REDIRECT_URI = "https://127.0.0.1:8000/welcome"
+SCOPES= "api web refresh_token full"
 
 
 MIDDLEWARE = [

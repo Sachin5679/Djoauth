@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("oauth/", include("django_salesforce_oauth.urls")),
     path('', views.page, name='page'),
+    path('welcome/', views.welcome_page, name='welcome'),
 ]
