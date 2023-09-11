@@ -39,7 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'salesforce',
+    "django_salesforce_oauth",
 ]
+
+SFDC_CONSUMER_KEY = os.getenv('CLIENT_ID')
+SALESFORCE_OAUTH_CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+OAUTH_REDIRECT_URI = os.getenv('CALLBACK_URL')
+LOGIN_REDIRECT_URL = "/"
+SCOPES=[]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,6 +90,15 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+AUTHENTICATION_BACKENDS = [
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    
+]
 
 
 # Password validation
