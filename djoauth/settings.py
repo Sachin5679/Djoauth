@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'salesforce',
     "django_salesforce_oauth",
+    "djoauth",
 ]
 
 SFDC_CONSUMER_KEY = os.getenv('CLIENT_ID')
@@ -65,7 +66,7 @@ ROOT_URLCONF = 'djoauth.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
