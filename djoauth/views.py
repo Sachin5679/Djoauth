@@ -16,7 +16,7 @@ def page(request):
 def initiate_oauth(request):
     client_id = os.getenv('CLIENT_ID')
     redirect_uri = os.getenv('CALLBACK_URI')
-    scope = 'openid full'  # Adjust scopes as needed
+    scope = 'full'  # Adjust scopes as needed
 
     # Build the Salesforce authorization URL
     authorization_url = f'https://login.salesforce.com/services/oauth2/authorize?response_type=token&client_id={client_id}&redirect_uri={redirect_uri}&scope={scope}'
