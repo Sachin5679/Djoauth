@@ -29,8 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # # Add this line to your settings.py to override the default LOGIN_URL.
 # LOGIN_URL = None
@@ -40,6 +40,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Application definition
 
 INSTALLED_APPS = [
+    "djoauth",
     "sslserver",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,7 +50,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'salesforce',
     "django_salesforce_oauth",
-    "djoauth",
 ]
 
 SFDC_CONSUMER_KEY = os.getenv('CLIENT_ID')
