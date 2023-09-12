@@ -29,10 +29,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# # Add this line to your settings.py to override the default LOGIN_URL.
+# LOGIN_URL = None
+
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    "sslserver",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,7 +55,7 @@ INSTALLED_APPS = [
 SFDC_CONSUMER_KEY = os.getenv('CLIENT_ID')
 SALESFORCE_OAUTH_CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 OAUTH_REDIRECT_URI = os.getenv('CALLBACK_URI')
-LOGIN_REDIRECT_URI = "/welcome"
+# LOGIN_REDIRECT_URL = os.getenv('CALLBACK_URI')
 SCOPES= "full"
 
 
@@ -60,6 +68,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 ROOT_URLCONF = 'djoauth.urls'
 
